@@ -1,0 +1,34 @@
+## https://github.com/helm/charts/blob/master/stable/seq/values.yaml
+
+
+fullnameOverride: seq
+
+image:
+    repository: datalust/seq
+    tag: latest
+
+persistence:
+  enabled: false
+auth:
+  enabled: false
+
+acceptEULA: "Y"
+
+ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+  
+ui:
+  service:
+    port: 80
+  ingress:
+    enabled: true
+    path: /
+    hosts:
+      - seq.simplestore.local
+
+ingestion:
+  service:
+    port: 5341
+
+
